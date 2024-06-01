@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -22,73 +22,40 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary ">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">TendenciasPeliculasHD</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <header>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary ">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#">PeliculasHD</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-
+                      
+                      <li class="nav-item">
+                        <a class="nav-link" href="tendenciasApi.html">Conexion a Api</a>
+                      </li>
+                      
+                
                     </ul>
+                  </div>
                 </div>
-            </div>
-        </nav>
-    </header>
+              </nav>
 
-    <main>
-        <section class="portada">
-            <h1 class="titulo">TODAS LAS TENDENCIAS DE PELICULAS EN UN SOLO LUGAR</h1>
-        </section>
+        </header>
         
-        <section class="container mt-5">
-            <h2 class="mb-4">Tendencias</h2> <!-- Título de tendencias -->
-            <div class="row" id="movies-container">
-                <!-- Películas se cargarán aquí -->
-            </div>
-        </section>
-    </main>
 
-    <script>
-        const apiKey = '1709c334f55f4b36a874243028f207da';  // Reemplaza 'YOUR_API_KEY' con tu clave API de TMDb
-        const apiUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=es-ES&page=1`;
+        <main>
 
-        async function fetchMovies() {
-            try {
-                const response = await fetch(apiUrl);
-                const data = await response.json();
-                displayMovies(data.results);
-            } catch (error) {
-                console.error('Error fetching movies:', error);
-            }
-        }
+            <section class="portada">
+                
+                    <h1 class="titulo">TODAS LAS PELICULAS EN UN SOLO LUGAR</h1>
 
-        function displayMovies(movies) {
-            const moviesContainer = document.getElementById('movies-container');
-            moviesContainer.innerHTML = '';
+              </section>
 
-            movies.forEach(movie => {
-                const movieElement = document.createElement('div');
-                movieElement.classList.add('col-md-4', 'mb-4');
-                movieElement.innerHTML = `
-                    <div class="card h-100">
-                        <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" class="card-img-top" alt="${movie.title}">
-                        <div class="card-body">
-                            <h5 class="card-title">${movie.title}</h5>
-                            <p class="card-text">${movie.overview}</p>
-                        </div>
-                    </div>
-                `;
-                moviesContainer.appendChild(movieElement);
-            });
-        }
+        </main>
 
-        fetchMovies();
-    </script>
-
+          
 </body>
 
 </html>
